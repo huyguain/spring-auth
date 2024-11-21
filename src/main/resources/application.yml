@@ -2,7 +2,7 @@ server:
   port: 8088
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/ShopApp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/spring_auth?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
     #url: ${SPRING_DATASOURCE_URL:jdbc:mysql://ubuntu-server-01.local:3399/ShopApp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
@@ -25,7 +25,7 @@ spring:
           max-file-size: 10MB
           max-request-size: 100MB
   messages:
-    basename: i18n/messages
+    basename: i18n/message
     encoding: utf-8
     default-locale: en
   security:
