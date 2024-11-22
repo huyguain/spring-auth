@@ -2,7 +2,10 @@ package com.example.spring_auth.controllers;
 
 import com.example.spring_auth.components.LocalizationUtils;
 import com.example.spring_auth.dtos.UserDTO;
+import com.example.spring_auth.models.User;
 import com.example.spring_auth.responses.ResponseObject;
+import com.example.spring_auth.responses.UserResponse;
+import com.example.spring_auth.services.user.IUserService;
 import com.example.spring_auth.utils.MessageKeys;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +22,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
     private final LocalizationUtils localizationUtils;
+    private final IUserService userService;
+
     @GetMapping("/login")
     public String login() throws Exception {
         try {
@@ -54,11 +59,12 @@ public class UserController {
                             .build()
             );
         }
+        User user = userService.createUser(userDTO);
         return ResponseEntity.ok(
                 ResponseObject.builder()
                         .message("User registered successfully")
                         .status(HttpStatus.OK)
-                        .data(userDTO)
+                        .data(UserResponse.fromUser(user))
                         .build()
         );
     }
