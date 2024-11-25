@@ -44,8 +44,8 @@ api:
   prefix: /api/v1
 jwt:
   expiration: 2592000 #30 days
-  expriation-refresh-token: 5184000 #60 days
-  secretKey:
+  expiration-refresh-token: 5184000 #60 days
+  secretKey: l821252BlBI4pmCgzMHILGjiQmc4CiS2cp7ogOgZFE0=
 
 logging:
   level:
